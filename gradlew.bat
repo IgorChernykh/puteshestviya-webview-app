@@ -1,3 +1,3 @@
 @echo off
-set GRADLE_HOME=%~dp0\gradle
-%GRADLE_HOME%\bin\gradle %*
+set DIR=%~dp0
+"%DIR%\gradle\wrapper\gradle-wrapper.jar" %*
