@@ -8,7 +8,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -21,10 +20,11 @@ jobs:
         distribution: 'zulu'
         java-version: '11'
 
-    - name: Build APK
-      run: |
-        chmod +x ./gradlew || true
-        ./gradlew assembleDebug
+    - name: Make gradlew executable
+      run: chmod +x ./gradlew
+
+    - name: Build with Gradle
+      run: ./gradlew assembleDebug
 
     - name: Upload APK
       uses: actions/upload-artifact@v3
