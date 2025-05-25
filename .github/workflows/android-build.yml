@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    steps:
+  steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
@@ -21,6 +21,9 @@ jobs:
 
       - name: Make gradlew executable
         run: chmod +x ./gradlew
+
+      - name: Fix gradle-wrapper.jar permissions
+        run: chmod +x ./gradle/wrapper/gradle-wrapper.jar
 
       - name: Build with Gradle
         run: ./gradlew assembleDebug
